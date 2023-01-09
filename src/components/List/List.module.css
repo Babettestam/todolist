@@ -1,8 +1,7 @@
 .container {
-  composes: smallPadding from "styles/layout.module.css";
+  composes: mediumPadding from 'styles/layout.module.css';
   width: 300px;
-
-  composes: borderLight from "styles/colors.module.css";
+  composes: borderLight from 'styles/colors.module.css';
   border-right-style: solid;
   border-width: 1px;
 }
@@ -13,4 +12,5 @@
 
 .header {
   text-align: center;
+  text-transform: uppercase;
 }

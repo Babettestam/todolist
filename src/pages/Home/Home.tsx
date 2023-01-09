@@ -1,22 +1,18 @@
-import React, { useState } from "react";
-import homeStyles from "pages/Home/Home.module.css";
-import { ListItem, TodoItem } from "types";
-import { v4 as uuid } from "uuid";
-import List from "components/List/List";
+import React from 'react';
+import styles from 'pages/Home/Home.module.css';
+import List from 'components/List/List';
+import useTodoList from 'hooks/useTodoList';
+import CreateListInput from 'components/CreateListInput/CreateListInput';
 
 const Home: React.FC = () => {
-  const [lists] = useState<ListItem[]>([{ name: "Backlog", id: uuid() }]);
-  const [todoItems] = useState<TodoItem[]>([]);
+  const { lists, createNewList } = useTodoList();
 
   return (
-    <div className={homeStyles.ListContainer}>
+    <div className={styles.ListContainer}>
       {lists.map(({ name, id }) => (
-        <List
-          key={id}
-          name={name}
-          todoItems={todoItems.filter(({ listId }) => listId === id)}
-        />
+        <List key={id} id={id} name={name} />
       ))}
+      <CreateListInput createNewList={createNewList} />
     </div>
   );
 };

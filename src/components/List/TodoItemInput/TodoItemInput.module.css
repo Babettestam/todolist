@@ -1,0 +1,14 @@
+.itemInput {
+  composes: borderLight from 'styles/colors.module.css';
+  composes: mainFont from 'styles/typogrophy.module.css';
+  border-top: none;
+  border-right: none;
+  border-left: none;
+  border-bottom-style: solid;
+  border-bottom-width: 1px;
+  width: 100%;
+}
+
+.itemInput::placeholder {
+  color: rgb(203, 186, 0);
+}

@@ -6,6 +6,6 @@ export interface ListItem {
 export interface TodoItem {
   id: string;
   name: string;
-  priority: number;
+  // priority: number;
   listId: ListItem["id"];
 }

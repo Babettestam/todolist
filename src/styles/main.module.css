@@ -1,0 +1,9 @@
+:global(html) {
+  font-size: 100%;
+}
+
+.main {
+  composes: smallPadding from "./layout.module.css";
+  composes: mainFont from "./typogrophy.module.css";
+  margin: 0;
+}

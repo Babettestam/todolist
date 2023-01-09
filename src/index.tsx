@@ -1,8 +1,8 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
-import Home from "./pages/Home/Home";
+import Home from "pages/Home/Home";
 import reportWebVitals from "./reportWebVitals";
-import styles from "./styles/main.module.css";
+import styles from "styles/main.module.css";
 
 const root = ReactDOM.createRoot(
   document.getElementById("root") as HTMLElement
@@ -11,7 +11,12 @@ const root = ReactDOM.createRoot(
 root.render(
   <React.StrictMode>
     <div className={styles.main}>
-      <Home />
+      <header>
+        <h1>To Do List</h1>
+      </header>
+      <main>
+        <Home />
+      </main>
     </div>
   </React.StrictMode>
 );

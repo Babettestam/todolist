@@ -1,3 +1,7 @@
 .fontMain {
   color: #333;
 }
+
+.borderLight {
+  border-color: rgb(214, 214, 214);
+}

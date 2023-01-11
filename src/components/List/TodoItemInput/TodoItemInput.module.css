@@ -7,6 +7,9 @@
   border-bottom-style: solid;
   border-bottom-width: 1px;
   width: 100%;
+  padding: 5.7px 0;
+  font-size: 16px;
+  outline: none;
 }
 
 .itemInput::placeholder {

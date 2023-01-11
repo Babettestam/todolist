@@ -7,5 +7,6 @@ export interface TodoItem {
   id: string;
   name: string;
   // priority: number;
-  listId: ListItem["id"];
+  listId: ListItem['id'];
+  done: boolean;
 }

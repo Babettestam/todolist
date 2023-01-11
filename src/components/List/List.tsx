@@ -10,7 +10,13 @@ interface Props {
 }
 
 const List: React.FC<Props> = ({ name, id }) => {
-  const { todoItems: allTodoItems, createNewItem } = useTodoList();
+  const {
+    todoItems: allTodoItems,
+    createNewItem,
+    updateItem,
+    removeItem,
+    markAsDone,
+  } = useTodoList();
   const todoItems = useMemo(
     () => allTodoItems.filter(({ listId }) => listId === id),
     [allTodoItems]
@@ -19,9 +25,16 @@ const List: React.FC<Props> = ({ name, id }) => {
   return (
     <div className={listStyles.container}>
       <h3 className={listStyles.header}>{name}</h3>
-      <TodoItemInput createNewItem={name => createNewItem({ name, listId: id })} />
-      {todoItems.map(({ id, name: todoItemName }) => (
-        <TodoItem key={id} name={todoItemName} />
+      <TodoItemInput onSubmit={name => createNewItem({ name, listId: id })} />
+      {todoItems.map(({ id: todoItemId, done, name: todoItemName }) => (
+        <TodoItem
+          key={id}
+          done={done}
+          name={todoItemName}
+          onChange={name => updateItem({ name, id: todoItemId })}
+          onRemove={() => removeItem({ id: todoItemId })}
+          markAsDone={() => markAsDone({ id: todoItemId, done: !done })}
+        />
       ))}
     </div>
   );

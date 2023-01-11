@@ -2,11 +2,13 @@ import React, { ChangeEvent, useState } from 'react';
 import styles from './TodoItemInput.module.css';
 
 interface Props {
-  createNewItem: (name: string) => void;
+  onSubmit: (name: string) => void;
+  initialValue?: string;
+  autoFocus?: boolean;
 }
 
-const TodoItemInput: React.FC<Props> = ({ createNewItem }) => {
-  const [value, setValue] = useState<string>('');
+const TodoItemInput: React.FC<Props> = ({ onSubmit, initialValue = '', autoFocus }) => {
+  const [value, setValue] = useState<string>(initialValue);
 
   const onChange = ({ target }: ChangeEvent<HTMLInputElement>) => {
     setValue(target.value);
@@ -14,8 +16,14 @@ const TodoItemInput: React.FC<Props> = ({ createNewItem }) => {
 
   const handleSubmit = (e: React.ChangeEvent<HTMLFormElement>) => {
     e.preventDefault();
-    setValue('');
-    createNewItem(value);
+    handleSaveValue();
+  };
+
+  const handleSaveValue = () => {
+    if (value) {
+      setValue('');
+      onSubmit(value);
+    }
   };
 
   return (
@@ -24,8 +32,10 @@ const TodoItemInput: React.FC<Props> = ({ createNewItem }) => {
         type="text"
         value={value}
         onChange={onChange}
+        onBlur={handleSaveValue}
         className={styles.itemInput}
         placeholder="add a new item"
+        autoFocus={autoFocus}
       />
     </form>
   );

@@ -2,4 +2,30 @@
   composes: borderLight from 'styles/colors.module.css';
   border-bottom-style: solid;
   border-bottom-width: 1px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.name {
+  cursor: pointer;
+}
+
+.iconButton {
+  background: none;
+  border: none;
+  padding: 3px;
+  opacity: 0;
+}
+
+.item:hover .iconButton {
+  opacity: 1;
+}
+
+.icon {
+  width: 13px;
+}
+
+.stripedThrough {
+  text-decoration: line-through;
 }

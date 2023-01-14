@@ -1,3 +1,4 @@
+import useLocalStorage from 'hooks/useLocalStorage';
 import React, { ReactElement, useState, createContext } from 'react';
 import { ListItem } from 'types';
 import { v4 as uuid } from 'uuid';
@@ -20,7 +21,7 @@ const TodoListContext = createContext<TodoListContextValues>({
   handleRemoveList: () => console.warn('Provider not implemented'),
 });
 const TodoListProvider = ({ children }: Props) => {
-  const [lists, setLists] = useState<ListItem[]>([{ name: '', id: uuid() }]);
+  const [lists, setLists] = useLocalStorage<ListItem[]>('LIST', [{ name: '', id: uuid() }]);
 
   const createNewList = ({ name = '' }: { name?: string }) => {
     const newList: ListItem = { name, id: uuid() };

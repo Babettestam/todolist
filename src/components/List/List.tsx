@@ -14,7 +14,7 @@ interface Props {
 
 const List: React.FC<Props> = ({ name, id, onRemoveList }) => {
   const { todoItems, createNewItem, updateItem, removeItem, markAsDone, moveItemDown, moveItemUp } =
-    useTodoItems();
+    useTodoItems({ listId: id });
 
   return (
     <div className={listStyles.container}>

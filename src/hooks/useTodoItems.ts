@@ -2,9 +2,10 @@ import { useState } from 'react';
 import { TodoItem } from 'types';
 import { v4 as uuid } from 'uuid';
 import { arrayMoveImmutable } from 'array-move';
+import useLocalStorage from 'hooks/useLocalStorage';
 
-const useTodoItems = () => {
-  const [todoItems, setTodoItems] = useState<TodoItem[]>([]);
+const useTodoItems = ({ listId }: { listId: string }) => {
+  const [todoItems, setTodoItems] = useLocalStorage<TodoItem[]>(`TODO_${listId}`, []);
 
   const updateItem = ({ id, name, done }: { id: string; name?: string; done?: boolean }): void => {
     setTodoItems(todoItems =>

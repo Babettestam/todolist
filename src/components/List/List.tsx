@@ -1,3 +1,4 @@
+import ListName from 'components/List/ListName/ListName';
 import TodoItem from 'components/List/TodoItem/TodoItem';
 import TodoItemInput from 'components/List/TodoItemInput/TodoItemInput';
 import useTodoItems from 'hooks/useTodoItems';
@@ -6,14 +7,15 @@ import listStyles from './List.module.css';
 
 interface Props {
   name: string;
+  id: string;
 }
 
-const List: React.FC<Props> = ({ name }) => {
+const List: React.FC<Props> = ({ name, id }) => {
   const { todoItems, createNewItem, updateItem, removeItem, markAsDone } = useTodoItems();
 
   return (
     <div className={listStyles.container}>
-      <h3 className={listStyles.header}>{name}</h3>
+      <ListName name={name} id={id} />
       <TodoItemInput onSubmit={name => createNewItem({ name })} />
       {todoItems.map(({ id: todoItemId, done, name: todoItemName }) => (
         <TodoItem

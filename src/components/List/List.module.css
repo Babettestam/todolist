@@ -1,16 +1,13 @@
 .container {
+  composes: mediumMarginVertical from 'styles/layout.module.css';
   composes: mediumPadding from 'styles/layout.module.css';
-  width: 300px;
   composes: borderLight from 'styles/colors.module.css';
+
+  min-width: 20rem;
   border-right-style: solid;
   border-width: 1px;
 }
 
 .container:first-child {
   border-left-style: solid;
-}
-
-.header {
-  text-align: center;
-  text-transform: uppercase;
 }

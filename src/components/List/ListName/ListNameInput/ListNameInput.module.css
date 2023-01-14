@@ -1,0 +1,6 @@
+.inputField {
+  composes: headerBasics from 'components/List/ListName/ListName.module.css';
+  border: none;
+  width: 100%;
+  outline: none;
+}

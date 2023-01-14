@@ -1,11 +1,42 @@
+/* Auto */
+
+.autoMarginHorizontal {
+  margin-left: auto;
+  margin-right: auto;
+}
+/* Small */
+
 .smallPadding {
   padding: 0.5rem;
 }
 
+.smallMargin {
+  margin: 0.5rem;
+}
+
+/* Medium */
+
 .mediumPadding {
   padding: 1rem;
 }
+.mediumMargin {
+  margin: 1rem;
+}
+.mediumMarginVertical {
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+}
+.mediumMarginHorizontal {
+  margin-left: 1rem;
+  margin-right: 1rem;
+}
+
+/* Large */
 
 .largePadding {
   padding: 1.5rem;
+}
+
+.largeMargin {
+  margin: 1.5rem;
 }

@@ -1,0 +1,15 @@
+.headerBasics {
+  composes: mainFont from 'styles/typogrophy.module.css';
+  composes: h3 from 'styles/typogrophy.module.css';
+  composes: mediumMarginVertical from 'styles/layout.module.css';
+  text-align: center;
+  text-transform: uppercase;
+  display: block;
+  min-height: 25.5px;
+  padding: 0;
+}
+
+.header {
+  composes: headerBasics;
+  cursor: text;
+}

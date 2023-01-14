@@ -2,6 +2,10 @@
   color: #333;
 }
 
+.fontLight {
+  color: #afafaf;
+}
+
 .borderLight {
   border-color: rgb(214, 214, 214);
 }

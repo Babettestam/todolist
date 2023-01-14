@@ -10,7 +10,7 @@ const Home: React.FC = () => {
   return (
     <div className={styles.ListContainer}>
       {lists.map(({ name, id }) => (
-        <List key={id} id={id} name={name} />
+        <List key={id} name={name} />
       ))}
       <CreateListInput createNewList={createNewList} />
     </div>

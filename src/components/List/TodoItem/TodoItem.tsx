@@ -26,14 +26,28 @@ const TodoItem: React.FC<Props> = ({ name, done, onChange, onRemove, markAsDone 
 
   return (
     <div className={styles.item}>
-      <span onClick={markAsDone} className={`${styles.name} ${done && styles.stripedThrough}`}>
+      <span
+        onClick={markAsDone}
+        className={`${styles.name} ${done && styles.stripedThrough}`}
+        data-testid="todo-item-name"
+      >
         {name}
       </span>
       <div>
-        <button onClick={() => setEditMode(true)} title="Edit" className={styles.iconButton}>
+        <button
+          onClick={() => setEditMode(true)}
+          title="Edit"
+          className={styles.iconButton}
+          data-testid="todo-item-edit"
+        >
           <Pen className={styles.icon} />
         </button>
-        <button onClick={onRemove} title="Remove" className={styles.iconButton}>
+        <button
+          onClick={onRemove}
+          title="Remove"
+          className={styles.iconButton}
+          data-testid="todo-item-remove"
+        >
           <Close className={styles.icon} />
         </button>
       </div>

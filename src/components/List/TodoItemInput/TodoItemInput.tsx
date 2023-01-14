@@ -36,6 +36,7 @@ const TodoItemInput: React.FC<Props> = ({ onSubmit, initialValue = '', autoFocus
         className={styles.itemInput}
         placeholder="add a new item"
         autoFocus={autoFocus}
+        data-testid="todo-item-input"
       />
     </form>
   );

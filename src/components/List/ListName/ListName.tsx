@@ -24,7 +24,7 @@ const ListName: React.FC<Props> = ({ name, id }) => {
         <ListNameInput onChangeName={onNameChange} initialValue={name} />
       ) : (
         <h3 onClick={toggleEditMode} className={listStyles.header}>
-          {name}
+          {name || 'Unnamed list'}
         </h3>
       )}
     </React.Fragment>

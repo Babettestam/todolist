@@ -6,8 +6,30 @@
   min-width: 20rem;
   border-right-style: solid;
   border-width: 1px;
+  position: relative;
 }
 
 .container:first-child {
   border-left-style: solid;
+}
+
+.closeButton {
+  composes: fontLight from 'styles/colors.module.css';
+  border: none;
+  background: none;
+
+  position: absolute;
+  top: 0rem;
+  right: 1rem;
+  width: 1rem;
+  height: 1rem;
+  cursor: button;
+}
+
+.closeButton:hover {
+  color: red;
+}
+
+.closeIcon {
+  width: 0.9rem;
 }

@@ -23,7 +23,12 @@
 }
 
 .icon {
-  width: 13px;
+  width: 0.9rem;
+  composes: fontLight from 'styles/colors.module.css';
+}
+
+.icon:hover {
+  color: #333;
 }
 
 .stripedThrough {

@@ -6,6 +6,8 @@ import TodoItem from './TodoItem';
 const mockMarkAsDone = jest.fn();
 const mockOnChange = jest.fn();
 const mockOnRemove = jest.fn();
+const mockMoveDown = jest.fn();
+const mockMoveUp = jest.fn();
 
 describe('TodoItem test', () => {
   beforeEach(() => {
@@ -16,6 +18,8 @@ describe('TodoItem test', () => {
         markAsDone={mockMarkAsDone}
         onChange={mockOnChange}
         onRemove={mockOnRemove}
+        moveDown={mockMoveDown}
+        moveUp={mockMoveUp}
       />
     );
   });

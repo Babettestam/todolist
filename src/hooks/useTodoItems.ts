@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { TodoItem } from 'types';
 import { v4 as uuid } from 'uuid';
+import { arrayMoveImmutable } from 'array-move';
 
 const useTodoItems = () => {
   const [todoItems, setTodoItems] = useState<TodoItem[]>([]);
@@ -33,7 +34,18 @@ const useTodoItems = () => {
     updateItem({ id, done });
   };
 
-  return { todoItems, createNewItem, updateItem, markAsDone, removeItem };
+  const moveItemDown = ({ id }: { id: string }) => moveItem('DOWN', id);
+  const moveItemUp = ({ id }: { id: string }) => moveItem('UP', id);
+
+  const moveItem = (direction: 'UP' | 'DOWN', id: string) => {
+    const currentIndex = todoItems.findIndex(todo => todo.id === id);
+    if (currentIndex === -1) return;
+
+    const newIndex = direction === 'UP' ? currentIndex - 1 : currentIndex + 1;
+    setTodoItems(todoItems => arrayMoveImmutable(todoItems, currentIndex, newIndex));
+  };
+
+  return { todoItems, createNewItem, updateItem, markAsDone, removeItem, moveItemDown, moveItemUp };
 };
 
 export default useTodoItems;

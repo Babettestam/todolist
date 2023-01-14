@@ -5,12 +5,12 @@ import useTodoList from 'hooks/useTodoList';
 import { ReactComponent as PlusIcon } from 'assets/icons/plus.svg';
 
 const Home: React.FC = () => {
-  const { lists, createNewList } = useTodoList();
+  const { lists, createNewList, handleRemoveList } = useTodoList();
 
   return (
     <div className={styles.listContainer}>
       {lists.map(({ name, id }) => (
-        <List key={id} id={id} name={name} />
+        <List key={id} id={id} name={name} onRemoveList={handleRemoveList} />
       ))}
       <button className={styles.plusIconButton} onClick={() => createNewList({})}>
         <PlusIcon />

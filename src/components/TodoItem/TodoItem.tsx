@@ -1,8 +1,10 @@
-import TodoItemInput from 'components/List/TodoItemInput/TodoItemInput';
+import TodoItemInput from 'components/TodoItem/TodoItemInput/TodoItemInput';
 import React, { useState } from 'react';
 import styles from './TodoItem.module.css';
 import { ReactComponent as Close } from 'assets/icons/close.svg';
 import { ReactComponent as Pen } from 'assets/icons/pen.svg';
+import { ReactComponent as ChevronDown } from 'assets/icons/chevronDown.svg';
+import { ReactComponent as ChevronUp } from 'assets/icons/chevronUp.svg';
 
 interface Props {
   name: string;
@@ -10,9 +12,19 @@ interface Props {
   onChange: (name: string) => void;
   onRemove: () => void;
   markAsDone: () => void;
+  moveDown: () => void;
+  moveUp: () => void;
 }
 
-const TodoItem: React.FC<Props> = ({ name, done, onChange, onRemove, markAsDone }) => {
+const TodoItem: React.FC<Props> = ({
+  name,
+  done,
+  onChange,
+  onRemove,
+  markAsDone,
+  moveDown,
+  moveUp,
+}) => {
   const [editMode, setEditMode] = useState<boolean>(false);
 
   const onSubmitChange = (newName: string) => {
@@ -34,6 +46,12 @@ const TodoItem: React.FC<Props> = ({ name, done, onChange, onRemove, markAsDone 
         {name}
       </span>
       <div>
+        <button onClick={moveDown} title="Move down" className={styles.iconButton}>
+          <ChevronDown className={styles.icon} />
+        </button>
+        <button onClick={moveUp} title="Move up" className={styles.iconButton}>
+          <ChevronUp className={styles.icon} />
+        </button>
         <button
           onClick={() => setEditMode(true)}
           title="Edit"

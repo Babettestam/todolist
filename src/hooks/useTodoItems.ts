@@ -1,4 +1,3 @@
-import { useState } from 'react';
 import { TodoItem } from 'types';
 import { v4 as uuid } from 'uuid';
 import { arrayMoveImmutable } from 'array-move';

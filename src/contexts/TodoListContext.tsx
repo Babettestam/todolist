@@ -1,5 +1,5 @@
 import useLocalStorage from 'hooks/useLocalStorage';
-import React, { ReactElement, useState, createContext } from 'react';
+import React, { ReactElement, createContext } from 'react';
 import { ListItem } from 'types';
 import { v4 as uuid } from 'uuid';
 
